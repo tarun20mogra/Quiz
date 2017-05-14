@@ -6,8 +6,8 @@ var option2;
 var option3;
 var option4;
 var arr = [];
-var correctResult = 'no';
-var result = 'yes';
+var correctResult ;
+var result ;
 var randomNumber;
 
 //---------------------------Controller for Index Page------------------------//
@@ -88,7 +88,7 @@ app.controller('TransferPage', function ($scope, $http, $window) {
         else if (typeChecked[1].checked){
             result = 'no';
         }
-    }
+    };
     $scope.getRadioButtonValue1 = function () {
         var typeChecked = document.getElementsByName("optradio2");
         if(typeChecked[0].checked){
@@ -103,7 +103,7 @@ app.controller('TransferPage', function ($scope, $http, $window) {
         else if (typeChecked[3].checked){
             result = document.getElementsByName("optradio2")[3].value;
         }
-    }
+    };
     $scope.getRadioButtonValue2 = function () {
         var typeChecked = document.getElementsByName("optradio3");
         if(typeChecked[0].checked){
@@ -119,28 +119,29 @@ app.controller('TransferPage', function ($scope, $http, $window) {
         else if (typeChecked[3].checked){
             result = document.getElementsByName("optradio3")[3].value;
         }
-    }
+    };
 
 
-    //----------------------------------------inflating for correct and wrong result
-    if(result!=null && result!="" ){
-     if(correctResult===result){
-         $scope.showResult= 'Hurray! Correct Answer';
 
-         }else{
-         $scope.showResult = 'Opps! Wrong Answer. Correct Answer Is'+ correctResult;
-        }
-     }
+
     //-------------------------Method call after submit button is called--------------------------------//
     $scope.submitButton = function () {
         $http({
             method: 'GET',
             url: '/result'
         }).then(function successCallback(data,json) {
+
+                //----------------------------------------inflating for correct and wrong result----------------------//
+                if(result!=null && result!="" ){
+
+                    if(correctResult===result){
+                        alert('Hurray! Correct Answer');
+
+                    }else{
+                        alert('Opps! Wrong Answer. Correct Answer Is : ' + correctResult);
+                    }
+                }
                 $window.location.href = '../../views/result.html' ;
-                $scope.showResult = "I am Here";
-
-
                 },
             function errorCallback(response) {
                 console.log("error");

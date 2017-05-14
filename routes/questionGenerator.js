@@ -29,6 +29,7 @@ router.get('/', function(req, res, next) {
             que = ["Is " + jsonObj.results[randomNumber].title.toUpperCase() + " a " + actorName + " Movie ?"];
             ans = 'yes';
             var data=[que,ans];
+            console.log(data);
             res.send(data);
             break;
         case "choices" :
@@ -51,6 +52,7 @@ router.get('/', function(req, res, next) {
             //---------------------------------------assigning the options-------------------------------------------------//
             questionOption = [jsonObj.results[option1].release_date,jsonObj.results[option2].release_date,jsonObj.results[option3].release_date];
             var data=[que,ans, questionOption[0],questionOption[1],questionOption[2]];
+            console.log(data);
             res.send(data);
             break;
         case "poster" :
@@ -76,6 +78,7 @@ router.get('/', function(req, res, next) {
             questionOption = [jsonObj.results[option1].title,jsonObj.results[option2].title, jsonObj.results[option3].title];
 
             var data=[que,ans, questionOption[0],questionOption[1],questionOption[2],jsonObj.results[randomNumber].backdrop_path];
+            console.log(data);
             res.send(data);
 
             break;
