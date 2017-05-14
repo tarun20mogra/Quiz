@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var result = require('./routes/result');
 var redirect = require('./routes/redirecthome');
 var question = require('./routes/questionGenerator');
+var redirectFinal = require('./routes/redirectFinal');
 var app = express();
 //var router = express.Router();
 
@@ -29,6 +30,7 @@ app.use('/', index);
 app.use('/result', result);
 app.use('/redirecthome', redirect);
 app.use('/questionGenerator', question);
+app.use('/redirectFinal', redirectFinal);
 app.use(express.static('../client'));
 //app.use('/users', users);
 

@@ -22,8 +22,7 @@ jsonObj = JSON.parse(obj);
 
 //---------------Generating the questions-----------------------//
 router.get('/', function(req, res, next) {
-    console.log("I am in question generator");
-    console.log(req.param("data"));
+
     switch (req.param("data")) {
         case "yesNo" :
             randomNumber = Math.floor((Math.random() * 20) + 1);

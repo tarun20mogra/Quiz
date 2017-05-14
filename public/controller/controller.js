@@ -11,7 +11,7 @@ var result = 'yes';
 var randomNumber;
 
 //---------------------------Controller for Index Page------------------------//
-app.controller('TransferPage', function ($rootScope,$scope, $http, $window) {
+app.controller('TransferPage', function ($scope, $http, $window) {
     randomNumber = Math.floor((Math.random() * 3)+1);
     //-----------------------HTTP call to get the random number-----------------------------//
     $http({
@@ -84,76 +84,70 @@ app.controller('TransferPage', function ($rootScope,$scope, $http, $window) {
         var typeChecked = document.getElementsByName("optradio1");
         if(typeChecked[0].checked){
             result = 'yes';
-            alert(result);
         }
         else if (typeChecked[1].checked){
             result = 'no';
-            alert(result);
         }
     }
     $scope.getRadioButtonValue1 = function () {
         var typeChecked = document.getElementsByName("optradio2");
         if(typeChecked[0].checked){
             result = document.getElementsByName("optradio2")[0].value;
-            alert(result);
         }
         else if (typeChecked[1].checked){
             result = document.getElementsByName("optradio2")[1].value;
-            alert(result);
         }
         if(typeChecked[2].checked){
             result = document.getElementsByName("optradio2")[2].value;
-            alert(result);
         }
         else if (typeChecked[3].checked){
             result = document.getElementsByName("optradio2")[3].value;
-            alert(result);
         }
     }
     $scope.getRadioButtonValue2 = function () {
         var typeChecked = document.getElementsByName("optradio3");
         if(typeChecked[0].checked){
             result = document.getElementsByName("optradio3")[0].value;
-            alert(result);
         }
         else if (typeChecked[1].checked){
             result = document.getElementsByName("optradio3")[1].value;
-            alert(result);
         }
         if(typeChecked[2].checked){
             result = document.getElementsByName("optradio3")[2].value;
-            alert(result);
+
         }
         else if (typeChecked[3].checked){
             result = document.getElementsByName("optradio3")[3].value;
-            alert(result);
         }
     }
 
+
+    //----------------------------------------inflating for correct and wrong result
+    if(result!=null && result!="" ){
+     if(correctResult===result){
+         $scope.showResult= 'Hurray! Correct Answer';
+
+         }else{
+         $scope.showResult = 'Opps! Wrong Answer. Correct Answer Is'+ correctResult;
+        }
+     }
     //-------------------------Method call after submit button is called--------------------------------//
     $scope.submitButton = function () {
-        alert("in submit"+result);
-
-
-
         $http({
             method: 'GET',
             url: '/result'
         }).then(function successCallback(data,json) {
-            $window.location.href = '../../views/result.html';
-                if(result!=null && result!="" ){
-                    if(correctResult==result){
-                        $scope.result = "Hurray! Correct Answer";
-                        alert("correct");
-                    }else{
-                        $scope.result="Opps! Wrong Answer";
-                        alert("wrong");}
-                }
-            },
+                $window.location.href = '../../views/result.html' ;
+                $scope.showResult = "I am Here";
+
+
+                },
             function errorCallback(response) {
                 console.log("error");
                 console.log(response);
             });
+
+
     }
 
     //-------------------controlling the onClick of Replay Button---------------------------//
@@ -161,9 +155,23 @@ app.controller('TransferPage', function ($rootScope,$scope, $http, $window) {
 
         $http({
             method: 'GET',
-            url: '/redirecthome',
+            url: '/redirecthome'
         }).then(function successCallback(response) {
                 $window.location.href="../../views/index.html";
+            },
+            function errorCallback(response) {
+                console.log("error");
+                console.log(response);
+            });
+    }
+    //-------------------------------Redirecting to final page if user ends the quiz-------------------------//
+    $scope.finalPage = function () {
+
+        $http({
+            method: 'GET',
+            url: '/redirectFinal'
+        }).then(function successCallback(response) {
+                $window.location.href="../../views/leavePage.html";
             },
             function errorCallback(response) {
                 console.log("error");

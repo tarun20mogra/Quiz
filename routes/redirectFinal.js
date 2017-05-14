@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-/* GET other page. */
+
+/* GET Final page. */
 router.get('/', function(req, res, next) {
-    res.send('../views/result.html');
+   res.send('../views/leavePage.html');
 });
-
-
 module.exports = router;
-
