@@ -8,7 +8,7 @@ var randomOption;
 var que;
 var ans;
 var randomNumber;
-var actorName = 'Brad Pit';
+var actorName = 'Brad Pitt';
 var options = [];
 var option1;
 var option2;
