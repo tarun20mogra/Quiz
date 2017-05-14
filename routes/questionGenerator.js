@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
     switch (req.param("data")) {
         case "yesNo" :
             randomNumber = Math.floor((Math.random() * 20) + 1);
-            que = ["Is " + jsonObj.results[randomNumber].title.toUpperCase() + " a " + actorName + " Movie ?"];
+            que = ["Is " + jsonObj.results[randomNumber].title.toUpperCase() + " a " + actorName + " Movie ? (yyyy-mm-dd)"];
             ans = 'yes';
             var data=[que,ans];
             console.log(data);
