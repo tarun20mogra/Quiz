@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+
+    <!--making the website responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="row" style="display: block" ng-controller="TransferPage" align="center">
+        <h1>{{Result}}</h1>
+    </div>
+    <div class="row">
+        <form class="form" ng-controller="TransferPage">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="center">
+                <button type="submit" class="btn btn-default center-block" ng-click="taketohome()">Replay</button>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                <button type="button" value="Leave" class="btn btn-default center-block" ng-click="finalPage()">Leave</button>
+            </div>
+        </form>
+    </div>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="../controller/controller.js"></script>
+
+</body>
+</html>

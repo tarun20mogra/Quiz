@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+
+    <!--making the website responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body >
+<form class="form" ng-controller="TransferPage">
+    <div class="container" >
+        <div class="row" align="center">
+            <h1>Movie Quiz</h1>
+        </div>
+        <div>
+            <div class="row" >
+                <h3> Question </h3>
+                <div  ng-show="question1">
+                    <h3><p>{{question1}}</p></h3>
+                    <div class="checkbox">
+                        <label ><input type="radio" name="optradio1" value="yes" ng-model="yesno"  ng-click="getRadioButtonValue()" >Yes</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio1" value="no" ng-model="yesno"  ng-click="getRadioButtonValue()">No</label>
+                    </div>
+                </div>
+
+                <div  ng-show="question2">
+                    <h3><p>{{question2}}</p></h3>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio2" ng-model="dates" value="{{date1}}" ng-click="getRadioButtonValue1()">{{date1}}</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio2" ng-model="dates" value={{date2}} ng-click="getRadioButtonValue1()"  >{{date2}}</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio2"  ng-model="dates" value={{date3}} ng-click="getRadioButtonValue1()">{{date3}}</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio2" ng-model="dates" value={{date4}} ng-click="getRadioButtonValue1()">{{date4}}</label>
+                    </div>
+                </div>
+                <div  ng-show="question3">
+                    <h3><p>{{question3}}</p></h3>
+                    <img src={{poster}} class="img-rounded" alt="Cinque Terre" width="304" height="236">
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio3" ng-model="name" value={{name1}} ng-click="getRadioButtonValue2()">{{name1}}</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio3" ng-model="name" value={{name2}} ng-click="getRadioButtonValue2()">{{name2}}</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio3" ng-model="name" value={{name3}} ng-click="getRadioButtonValue2()">{{name3}}</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="radio" name="optradio3"  ng-model="name" value={{name4}} ng-click="getRadioButtonValue2()">{{name4}}</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-default center-block" ng-click="submitButton()">Submit</button>
+</form>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="../controller/controller.js"></script>
+
+</body>
+</html>
